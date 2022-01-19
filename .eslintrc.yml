@@ -14,7 +14,9 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
-rules: {}
+rules: {
+  "object-curly-spacing": ["error", "always"]
+}
 ignorePatterns:
   - "src/**/*.test.ts"
   - "src/**/*.test.tsx"
