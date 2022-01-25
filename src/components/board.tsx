@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Board = () => {
-  return <Content></Content>;
+  return <Content><p>Phism board is now developing!!</p></Content>;
 };
 
 const Content = styled.div`
