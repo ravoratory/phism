@@ -15,7 +15,8 @@ plugins:
   - react
   - '@typescript-eslint'
 rules: {
-  "object-curly-spacing": ["error", "always"]
+  "object-curly-spacing": ["error", "always"],
+  "require-jsdoc": 0
 }
 ignorePatterns:
   - "src/**/*.test.ts"
