@@ -6,7 +6,9 @@ import { Board } from './components/board';
 const App = () => {
   return (
     <Content>
-      <header></header>
+      <header>
+        <big>Phism</big>
+      </header>
       <main>
         <Sidebar />
         <Board />
