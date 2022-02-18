@@ -1,4 +1,4 @@
-import { Phism } from './phism';
+import Phism from './phism';
 
 export const Claymorphism = class extends Phism {
   constructor() {

@@ -2,7 +2,7 @@ interface CSSProps {
   [prop: string]: string;
 }
 
-export abstract class Phism {
+export default abstract class Phism {
   name!: string;
   description!: string;
   defaultColor: string = '#ffffff';
