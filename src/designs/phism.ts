@@ -1,17 +1,17 @@
 export abstract class Phism {
   name!: string;
   description!: string;
-  styleProps!: {[key: string]: string};
   defaultColor!: string;
-  customizedStyleProps: {string?: string} | undefined;
+  private styleProps!: {[key: string]: string};
+  private customizedStyleProps: {string?: string} | undefined;
   constructor(props: {
     name: string, description: string,
     styleProps: {[key: string]: string}, defaultColor?: string,
   }) {
     this.name = props.name;
     this.description = props.description;
-    this.styleProps = props.styleProps;
     this.defaultColor = props.defaultColor ?? '#ffffff';
+    this.styleProps = props.styleProps;
     Object.freeze(this.styleProps);
   }
 
