@@ -26,7 +26,6 @@ export abstract class Phism {
 
   setCustomProps(props: {[key: string]: string}): void {
     this.customizedStyleProps = Object.assign({}, this.styleProps, props);
-    console.log(this.customizedStyleProps);
   }
 
   resetProps(): void {
