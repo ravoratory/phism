@@ -1,34 +1,37 @@
+interface CSSProps {
+  [prop: string]: string;
+}
+
 export abstract class Phism {
   name!: string;
   description!: string;
-  defaultColor!: string;
-  private styleProps!: {[key: string]: string};
-  private customizedStyleProps: {string?: string} | undefined;
+  defaultColor: string = '#ffffff';
+  private styleProps!: CSSProps;
+  private customizedStyleProps?: CSSProps;
+
   constructor(props: {
-    name: string, description: string,
-    styleProps: {[key: string]: string}, defaultColor?: string,
+    name: string,
+    description: string,
+    styleProps: CSSProps,
+    defaultColor?: string,
   }) {
-    this.name = props.name;
-    this.description = props.description;
-    this.defaultColor = props.defaultColor ?? '#ffffff';
-    this.styleProps = props.styleProps;
-    Object.freeze(this.styleProps);
+    Object.assign(this, props);
   }
 
-  get style(): { string?: string } {
+  get style(): CSSProps {
     return this.customizedStyleProps ?? this.styleProps;
+  }
+
+  set style(props: CSSProps) {
+    this.customizedStyleProps = Object.assign({}, this.styleProps, props);
   }
 
   get styleAsString(): string {
     return Object.entries(this.style).map(([key, value]) =>
-      key !== 'string' ? `${key}: ${value};` : '').join('\n');
+      `${key}: ${value};`).join('\n');
   }
 
-  setCustomProps(props: {[key: string]: string}): void {
-    this.customizedStyleProps = Object.assign({}, this.styleProps, props);
-  }
-
-  resetProps(): void {
+  reset(): void {
     this.customizedStyleProps = undefined;
   }
 }

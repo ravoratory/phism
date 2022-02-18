@@ -10,12 +10,12 @@ export const Sidebar = () => {
   const dispatch = useAppDispatch();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    clay.setCustomProps({ 'background-color': e.target.value });
+    clay.style = { 'background-color': e.target.value };
     dispatch(setStyle(clay.styleAsString));
   };
   const onClickReset = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    clay.resetProps();
+    clay.reset();
     dispatch(setStyle(clay.styleAsString));
   };
   const changeColor = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
