@@ -10,18 +10,18 @@ export const Sidebar = () => {
   const dispatch = useAppDispatch();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    clay.style = { 'background-color': e.target.value };
-    dispatch(setStyle(clay.props));
+    clay.props = { 'background-color': e.target.value };
+    dispatch(setStyle(clay.style));
   };
   const onClickReset = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     clay.reset();
-    dispatch(setStyle(clay.props));
+    dispatch(setStyle(clay.style));
   };
   const changeColor = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
   };
-  dispatch(setStyle(clay.props));
+  dispatch(setStyle(clay.style));
   return (
     <Content>
       <div>

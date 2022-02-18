@@ -3,9 +3,9 @@ interface CSSProps {
 }
 
 export default abstract class Phism {
-  name!: string;
-  description!: string;
-  defaultColor: string = '#ffffff';
+  readonly name!: string;
+  readonly description!: string;
+  readonly defaultColor: string = '#ffffff';
   private styleProps!: CSSProps;
   private customizedStyleProps?: CSSProps;
 
@@ -18,16 +18,16 @@ export default abstract class Phism {
     Object.assign(this, props);
   }
 
-  get style(): CSSProps {
+  get props(): CSSProps {
     return this.customizedStyleProps ?? this.styleProps;
   }
 
-  set style(props: CSSProps) {
+  set props(props: CSSProps) {
     this.customizedStyleProps = Object.assign({}, this.styleProps, props);
   }
 
-  get props(): string {
-    return Object.entries(this.style).map(([key, value]) =>
+  get style(): string {
+    return Object.entries(this.props).map(([key, value]) =>
       `${key}: ${value};`).join('\n');
   }
 
