@@ -26,7 +26,7 @@ export default abstract class Phism {
     this.customizedStyleProps = Object.assign({}, this.styleProps, props);
   }
 
-  get styleAsString(): string {
+  get props(): string {
     return Object.entries(this.style).map(([key, value]) =>
       `${key}: ${value};`).join('\n');
   }
