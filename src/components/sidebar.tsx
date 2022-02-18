@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Claymorphism } from '../designs/claymorphism';
+import { Claymorphism } from '../designs';
 import { setStyle } from '../features/style';
 import { useAppDispatch } from '../hooks';
 
