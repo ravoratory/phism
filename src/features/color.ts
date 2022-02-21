@@ -6,7 +6,7 @@ interface ColorState {
 }
 
 const initialState: ColorState = {
-  value: '#faebd7',
+  value: '#ffffff',
 };
 
 export const colorSlice = createSlice({

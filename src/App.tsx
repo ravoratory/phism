@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Board } from './components/board';
+import { Config } from './components/config';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         Phism
       </header>
       <main>
+        <Config />
         <Board />
       </main>
       <footer>
@@ -32,8 +34,9 @@ const Content = styled.div`
   }
   > main {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
-    flex-direction: row;
   }
   > footer {
     min-height: 2rem;

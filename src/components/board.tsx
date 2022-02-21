@@ -1,23 +1,23 @@
 import styled from 'styled-components';
-import { Claymorphism } from '../designs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-// import { selectStyle } from '../features/style';
-// import { useAppSelector } from '../hooks';
+import { useAppSelector } from '../hooks';
+import { selectColor } from '../features/color';
+import { selectDesign } from '../features/design';
 
 export const Board = () => {
-  // const _ = useAppSelector(selectStyle);
-  const clay = new Claymorphism();
+  const color = useAppSelector(selectColor);
+  const design = useAppSelector(selectDesign);
   return (
     <Content>
       <div id="base">
         <span>standard</span>
-        <Card></Card>
+        <Card color={color}></Card>
       </div>
       <FontAwesomeIcon icon={faArrowRight} size="6x"/>
       <div id="styled">
-        <span>{clay.name}</span>
-        <Card props={clay.style}></Card>
+        <span>{design?.name ?? 'standard'}</span>
+        <Card props={design?.style ?? ''} color={color}></Card>
       </div>
     </Content>
   );
@@ -43,8 +43,8 @@ const Content = styled.div`
   }
 `;
 
-const Card = styled.div<{ props?: string }>`
-  background-color: white;
+const Card = styled.div<{ props?: string, color?: string }>`
+  background-color: ${(props) => props.color ?? 'white'};
   width: 400px;
   height: 400px;
   border-radius: 32px;
