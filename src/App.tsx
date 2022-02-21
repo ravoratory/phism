@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-import { Sidebar } from './components/sidebar';
 import { Board } from './components/board';
+import { Config } from './components/config';
 
 const App = () => {
   return (
     <Content>
-      <header></header>
+      <header>
+        Phism
+      </header>
       <main>
-        <Sidebar />
+        <Config />
         <Board />
       </main>
       <footer>
@@ -23,20 +25,22 @@ const Content = styled.div`
   flex-direction: column;
   text-align: center;
   height: 100vh;
+  background: linear-gradient(180deg, #A2C8F4 0%, #FFFFFF 100%);
   > header {
     min-height: 4rem;
-    background-color: #333;
-    color: whitesmoke;
+    text-align: left;
+    padding: 30px;
+    font-size: 50px;
   }
   > main {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
-    flex-direction: row;
   }
   > footer {
     min-height: 2rem;
     text-justify: center;
-    background-color: lightsteelblue;
   }
 `;
 
