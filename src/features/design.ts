@@ -1,23 +1,32 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import Phism from '../designs/phism';
-import { Claymorphism } from '../designs';
+// import Phism from '../designs/phism';
+import {
+  Claymorphism,
+  Neumorphism,
+  Glassmorphism,
+} from '../designs';
 
 interface DesignState {
-  value: Phism | null;
+  value: {[key: string]: string} | null;
 }
 
 const initialState: DesignState = {
-  // TODO: add other designs
-  value: new Claymorphism(),
+  value: null,
 };
+
+export const designs: { [key: string]: {[key: string]: string} } = {
+  'claymorphism': new Claymorphism().props,
+  'neumorphism': new Neumorphism().props,
+  'glassmorphism': new Glassmorphism().props,
+} as const;
 
 export const DesignSlice = createSlice({
   name: 'Design',
   initialState,
   reducers: {
-    setDesign: (state, action: PayloadAction<Phism|null>) => {
-      state.value = action.payload;
+    setDesign: (state, action: PayloadAction<string>) => {
+      state.value = designs[action.payload] ?? null;
     },
   },
 });

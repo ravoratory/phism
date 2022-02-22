@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 import { useAppSelector } from '../hooks';
 import { selectColor } from '../features/color';
 import { selectDesign } from '../features/design';
@@ -35,7 +36,7 @@ const Content = styled.div`
   justify-items: center;
   overflow-x: hidden;
   overflow-y: auto;
-  transition: color 0.5s ease-in-out;
+  transition: box-shadow 0.5s ease-in-out;
   & > div {
     display: flex;
     flex-direction: column;
@@ -49,6 +50,7 @@ const Card = styled.div<{ props?: string, color?: string }>`
   height: 400px;
   border-radius: 32px;
   padding: 16px;
+  outline: ${(props) => props.props ? 'none' : '1px solid black' };
   ${(props) => props.props}
   > p {
     font-size: 16px;

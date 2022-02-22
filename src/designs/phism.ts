@@ -19,7 +19,7 @@ export default abstract class Phism {
   }
 
   get props(): CSSProps {
-    return this.customizedStyleProps ?? this.styleProps;
+    return { name: this.name, style: this.style };
   }
 
   set props(props: CSSProps) {
@@ -27,8 +27,8 @@ export default abstract class Phism {
   }
 
   get style(): string {
-    return Object.entries(this.props).map(([key, value]) =>
-      `${key}: ${value};`).join('\n');
+    return Object.entries(this.customizedStyleProps ?? this.styleProps)
+        .map(([key, value]) => `${key}: ${value};`).join('\n');
   }
 
   reset(): void {
