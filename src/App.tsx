@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 import { Board } from './components/board';
 import { Config } from './components/config';
+import { selectColor } from './features/color';
+import { useAppSelector } from './hooks';
 
 const App = () => {
+  const color = useAppSelector(selectColor);
   return (
-    <Content>
+    <Content color={color}>
       <header>
         Phism
       </header>
@@ -20,12 +23,12 @@ const App = () => {
   );
 };
 
-const Content = styled.div`
+const Content = styled.div<{color: string}>`
   display: flex;
   flex-direction: column;
   text-align: center;
   height: 100vh;
-  background: linear-gradient(180deg, #A2C8F4 0%, #FFFFFF 100%);
+  background-color: ${(props) => props.color};
   > header {
     min-height: 4rem;
     text-align: left;
